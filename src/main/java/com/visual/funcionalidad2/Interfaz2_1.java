@@ -20,7 +20,7 @@ public class Interfaz2_1 extends PlantillaInterfaces {
         setLayout(new BorderLayout());
 
         add(rv.getTitle(), BorderLayout.NORTH);
-        add(getMainPanel("Página Principal"), BorderLayout.CENTER);
+        add(getMainPanel("Elegir nivel"), BorderLayout.CENTER);
     }
 
     @Override
@@ -42,22 +42,27 @@ public class Interfaz2_1 extends PlantillaInterfaces {
         // Contenido principal de la vista
         // [No loggeado] -> El contenido es un flowlayout con los botones de login...
         JPanel content = new JPanel();
-        content.setLayout(new FlowLayout());
+        content.setLayout((new BoxLayout(content, BoxLayout.Y_AXIS)));
 
-        // boton de login
-        JButton login = new JButton("Log in");
-        login.addActionListener(mouseEventHandler());
-        content.add(login);
+        // boton nivel fácil
+        JButton facil = new JButton("Facil");
+        facil.setBounds(100,10,90,30);
+        facil.addActionListener(mouseEventHandler());
+        content.add(facil);
 
-        // boton de registro
-        JButton register = new JButton("Register");
-        register.addActionListener(mouseEventHandler());
-        content.add(register);
+        // boton nivel intermedio
+        JButton intermedio = new JButton("Intermedio");
+        intermedio.setBounds(100,30,90,30);
+        intermedio.addActionListener(mouseEventHandler());
+        content.add(intermedio);
 
-        // boton de recuperacion de contraseña
-        JButton rec = new JButton("Recuperar Contraseña");
-        rec.addActionListener(mouseEventHandler());
-        content.add(rec);
+        // boton nivel difícil
+        JButton dificil = new JButton("Dificil");
+        dificil.setBounds(100,50,90,30);
+        dificil.addActionListener(mouseEventHandler());
+        content.add(dificil);
+
+
         return content;
     }
 
@@ -71,17 +76,17 @@ public class Interfaz2_1 extends PlantillaInterfaces {
                 if(o instanceof JButton){
                     JButton button = (JButton) o;
 
-                    if(Objects.equals(button.getText(), "Log in")){
-                        // Abrimos la vista de log in
-                        GestorPaneles.getInstance().bind(new Interfaz2());
+                    if(Objects.equals(button.getText(), "Facil")){
+                        //
 
-                    }else if(Objects.equals(button.getText(), "Register")){
-                        // Abrimos la vista de registro
-                        GestorPaneles.getInstance().bind(new Interfaz4());
 
-                    }else if(Objects.equals(button.getText(), "Recuperar Contraseña")){
-                        // Abrimos la vista de recuperacion
-                        GestorPaneles.getInstance().bind(new Interfaz6());
+                    }else if(Objects.equals(button.getText(), "Intermedio")){
+                        //
+
+
+                    }else if(Objects.equals(button.getText(), "Dificil")){
+                        //
+
 
                     }
                 }

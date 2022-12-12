@@ -3,6 +3,7 @@ package com.visual.funcionalidad1;
 import com.visual.GestorPaneles;
 import com.visual.PlantillaInterfaces;
 import com.visual.RecursosVisuales;
+import com.visual.funcionalidad2.Interfaz2_1;
 import com.zetcode.Sistema;
 
 import javax.swing.*;
@@ -69,9 +70,10 @@ public class Interfaz9 extends PlantillaInterfaces {
     protected JPanel getContentPanel(){
         // Contenido principal de la vista
         JPanel content = new JPanel();
-
+        JButton levelButton = new JButton("Elegir nivel");
+        levelButton.addActionListener(mouseEventHandler());
         content.add(new JLabel("Añadir contenido de la página aquí (clase: funcionalidad1.Interfaz9; método: getContentPanel())"));
-
+        content.add(levelButton);
         return content;
     }
 
@@ -91,6 +93,11 @@ public class Interfaz9 extends PlantillaInterfaces {
                     }else if(Objects.equals(button.getText(), "Log out")){
                         // Volvemos a la vista principal pero desloggeados
                         GestorPaneles.getInstance().bind(new Interfaz1());
+                    }
+                    else if(Objects.equals(button.getText(), "Elegir nivel")){
+                        // Abrimos la vista de selección de nivel
+                        GestorPaneles.getInstance().bind(new Interfaz2_1());
+
                     }
                 }
             }
